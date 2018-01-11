@@ -21,7 +21,7 @@
       padding: 6px;
       overflow: hidden;
     }
-    .fade-item span {
+    .todo-item {
       float: left;
       min-width: 3em;
       max-width: 8em;
@@ -29,14 +29,15 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .fade-item button {
+    .reduce {
       float: left;
       width: 22px;
-      height: 22px;
+      line-height: 22px;
       text-align: center;
       background: #fff;
       transform: translateY(10%);
       border-radius: 6px;
+      font-size: 16px;
       border: 1px solid #ebebeb;
     }
     .iptWrap {
@@ -83,8 +84,8 @@
     </div>
     <transition-group name="fade" tag="p" class="animate-wrap">
       <div v-for="(item, index) in items" v-bind:key="item.name" class="fade-item">
-        <span>{{item.name}}</span>
-        <button type="button" :value="index" @click="reduceItem" name="button">-</button>
+        <span class="todo-item">{{item.name}}</span>
+        <span class="reduce" :value="index" @click="reduceItem">-</span>
       </div>
     </transition-group>
   </div>
